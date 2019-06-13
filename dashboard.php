@@ -7,6 +7,9 @@
       $result = getMenu();
     ?>
     <style>
+    *{
+        cursor:pointer;
+    }
        #admin{
             margin-top:20px;
             margin-left:85%;
@@ -41,6 +44,7 @@
 </head>
 <body>
 <a href="menu.php"><button id="admin">Menu</button></a>
+<a href="fooditem.php"><button id="admin">New Food Item</button></a>
     <table>
         <tr>
             <th>Name</th>
