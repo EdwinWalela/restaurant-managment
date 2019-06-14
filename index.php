@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <a href="dashboard.php"><button id="admin">Admin</button></a>
+    <a href="login.php"><button id="admin">Login</button></a>
     <h1>Our Menu</h1>
         <?php
             // output data of each row

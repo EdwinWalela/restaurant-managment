@@ -11,6 +11,8 @@
 
 <body>
 	<form action="./forms/registerUser.php" method="POST">
+		<p>Already Have an account?
+		<a href="login.php"><span id='new-acc-tip'> Login</a></span></p>
 		<label for="fname">First Name</label>
 		<input type="text" name="fname" id="fname">
 		<br/>
