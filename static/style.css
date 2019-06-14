@@ -1,0 +1,156 @@
+*{
+    font-family:sans-serif;
+    cursor:pointer;
+}
+#admin{
+    float:right;
+    width:150px;
+    margin:10px;
+    padding:15px;
+    border:none;
+    background:#fff;
+    color:tomato;
+}
+    h1{
+        clear: both;
+        margin-top:2em;
+        color:#fff;
+        text-align:center;
+    }
+    body{
+        padding:50px 10px;
+        text-align:center;
+        background:tomato;
+    }
+    select{
+        font-size:1.2em;
+        padding:10px;
+        margin:30px 0;
+        width:200px;
+    }
+    form{
+        border-radius:5px;
+        box-shadow:0px 20px 10px rgba(0,0,0,0.3);
+        padding:50px 10px;
+        margin:20px auto 50px auto;
+        max-width:400px;
+        background:#fff;
+    }
+    input{
+        font-size:1.2em;
+        padding:10px;
+        margin:30px 0;
+        width:160px;
+        
+    }
+    label{
+        width:100px;
+        font-size:1.2em;
+        color:#000;
+        margin:10px 30px;
+    }
+    .white-btn{
+        width:200px;
+        padding:15px;
+        border:none;
+        color:#fff;
+        background:tomato;
+        text-decoration:underline;
+        transition:all linear .3s .3s;
+    }
+    .white-btn:hover{
+        transition:all linear .3s .1s;
+        color:tomato;
+        background:#fff;
+        text-decoration:none;
+    }
+    .orange-btn{
+        width:200px;
+        padding:15px;
+        border:none;
+        background:#fff;
+        color:tomato;
+        text-decoration:underline;
+        transition:all linear .3s .3s;
+    }
+    .orange-btn:hover{
+        transition:all linear .3s .1s;
+        background:tomato;
+        color:#fff;
+        text-decoration:none;
+    }
+    .white-btn-static{
+        width:200px;
+        padding:15px;
+        border:none;
+        background:#fff;
+        color:tomato;
+        text-decoration:underline;
+        transition:all linear .3s .3s;
+    }
+    .menu-card{
+        border-radius:10px;
+        background:#fff;
+        padding:20px;
+        margin:20px;
+        width:200px;
+        height:200px;
+        display:inline-block;
+        transition:all linear .3s;
+    }
+    .menu-card:hover{
+        transition:all linear .3s;
+        transform:scale(1.07);
+    }
+    .menu-card img{
+        height:100px;
+        width:100px;
+    }
+    .fa-angle-double-down{
+        display: block !important;
+        color:#fff;
+        font-size: 3em;
+        margin:20px auto;
+        position: relative;
+        animation: landing-bubble 2s ease-in-out infinite forwards;
+    }
+
+    .res-pics{
+        width:200px;
+        height:200px;
+    }
+
+    table {
+        clear: both;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 400px;
+        margin:auto;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr {
+        background-color: #fff;
+    }
+
+    .table-pic{
+        height:80px;
+        width:80px;
+    }
+
+    @keyframes landing-bubble{
+        0%{
+            top:0;
+        }
+        50%{
+            top:40px;
+        }
+        100%{
+            top:0;
+        }
+    }
