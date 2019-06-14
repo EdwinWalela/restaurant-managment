@@ -7,9 +7,9 @@
       $result = getMenu();
     ?>
     <style>
-    *{
-        cursor:pointer;
-    }
+        *{
+            cursor:pointer;
+        }
        #admin{
             margin-top:20px;
             margin-left:85%;
@@ -49,8 +49,7 @@
         <tr>
             <th>Name</th>
             <th>Price</th>
-            <th>Pic</th>
-            
+            <th>Pic</th>  
         </tr>
         <?php
             // output data of each row

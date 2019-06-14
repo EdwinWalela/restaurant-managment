@@ -13,12 +13,6 @@
         return $conn->query($sql);	
 	}
 
-	function registerUser($username,$pass){
-		$conn = connect();
-		$sql = "INSERT INTO users(username,password) values('".$username."','".$pass."')";
-		$conn->query($sql);
-	}
-
 	function getUser($id){
 		$conn = connect();
 		$sql = "SELECT * FROM users WHERE id = ".$id;
@@ -52,6 +46,18 @@
 		}
 		$result = $conn->query($sql);
 	}
-	
 
+	function registerUser($fname,$lname,$pass,$type){
+		$conn = connect();
+		$pass = sha1($pass);
+		$sql = "INSERT INTO users (id,fname,lname,pass,userId) values(DEFAULT,'".$fname."','".$lname."','".$pass."',".$type.") ";
+		$conn->query($sql);
+	}
+
+	function getUserTypes(){
+		$conn = connect();
+		$sql = "SELECT * FROM userTypes";
+		return $conn->query($sql);
+	}
+	
  ?>
