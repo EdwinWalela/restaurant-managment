@@ -60,4 +60,11 @@
 		return $conn->query($sql);
 	}
 	
+	function login($username,$pass){
+		$conn = connect();
+		$sql = "SELECT * FROM users WHERE fname='".$username."'";
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+		return $row;
+	}
  ?>

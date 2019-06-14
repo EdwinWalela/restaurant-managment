@@ -6,8 +6,14 @@
 	<?php
 		$queries = array();
 		parse_str($_SERVER["QUERY_STRING"],$queries);
-		function accCreation(){
+		function success(){
 			echo "<p class='msg msg-success'>Account creation was successful. Please Login to proceed</p>";
+		}
+		function mismatch(){
+			echo "<p class='msg msg-fail'>Incorrect Credentials. Please Try Again</p>";
+		}
+		function notfound(){
+			echo "<p class='msg msg-fail'>Account not Found. Please Create an Account First</p>";
 		}
 		function accFail(){
 			echo "<p class='msg msg-fail'>Oops. Please try again</p>";
@@ -17,10 +23,12 @@
 
 <body>
 	<?php
-		if($queries["creation"] === "success"){
-			accCreation();	
-		}else if($queries["creation"] === "fail"){
-			accFail();
+		if($queries["status"] === "mismatch"){
+			mismatch();	
+		}else if($queries["status"] === "n/a"){
+			notfound();
+		}else if($queries["status"] === "ok"){
+			success();
 		}
 	?>
 	<form action="./forms/login.php" method="POST">
