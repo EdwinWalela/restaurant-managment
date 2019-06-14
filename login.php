@@ -23,20 +23,22 @@
 
 <body>
 	<?php
-		if($queries["status"] === "mismatch"){
-			mismatch();	
-		}else if($queries["status"] === "n/a"){
-			notfound();
-		}else if($queries["status"] === "ok"){
-			success();
+		if(sizeof($queries) !=0 ){
+			if($queries["status"] === "mismatch"){
+				mismatch();	
+			}else if($queries["status"] === "n/a"){
+				notfound();
+			}else if($queries["status"] === "ok"){
+				success();
+			}
 		}
 	?>
 	<form action="./forms/login.php" method="POST">
 		<label for="fname">First Name</label>
-		<input type="text" name="fname" id="fname">
+		<input type="text" name="fname" id="fname" required>
 		<br/>
 		<label for="pass">Password</label>
-		<input type="password" name="pass" id="pass">
+		<input type="password" name="pass" id="pass" required>
 		<br/>
 		<button class="orange-btn" type="submit">Login</button>
 		<a href="register.php"><p id='new-acc-tip'>Create Account</p></a>

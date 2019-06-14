@@ -14,13 +14,13 @@
 		<p>Already Have an account?
 		<a href="login.php"><span id='new-acc-tip'> Login</a></span></p>
 		<label for="fname">First Name</label>
-		<input type="text" name="fname" id="fname">
+		<input type="text" name="fname" id="fname" required>
 		<br/>
 		<label for="lname">Last Name</label>
-		<input type="text" name="lname" id="lname">
+		<input type="text" name="lname" id="lname" required>
 		<br/>
 		<label for="pass">Password</label>
-		<input type="password" name="pass" id="pass">
+		<input type="password" name="pass" id="pass" required> 
 		<br/>
 		<label for="type">User Type</label>
 		<select name="type" id="type">
