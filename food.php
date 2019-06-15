@@ -4,7 +4,7 @@
 <head>
 
 
-    <title>Add Items</title>
+    <title>Update Item</title>
     <link rel="stylesheet" href="./static/style.css">
 <?php
         require "./config/dbconfig.php";

@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +14,14 @@
 </head>
 
 <body>
-    <a href="login.php"><button id="admin">Login</button></a>
-    <h1>Our Menu</h1>
+    <?php
+        if(isset($_SESSION["auth"])){
+    ?>
+    <a href="logout.php"><button id="admin">Logout</button></a>
+    <?php
+        }
+    ?>
+    <h1>Ed's Eatery</h1>
         <?php
             // output data of each row
             while($row = $result->fetch_assoc()) {
@@ -24,28 +32,35 @@
                 echo "</div>";
             }
         ?>
-
     <i class="fas fa-angle-double-down"></i>
-
-    <h1>Order Now </h1>
-    
-    <form action="result.php"  method="post">
-        <label for="item">Food Item</label>
-        <select name="item" id="item">
-        <?php
-            $result = getMenu();
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                print_r($row);
-                echo "<option value='" .$row['name']. "'>".$row["name"]."</option>";
-            }
-        ?>
-        </select>
-        <br>
-        <label for="quantity"> Quantity</label>
-        <input type="number" name="quantity" id="quantity" value=1>
-        <br> <br>
-        <button class="orange-btn" type="submit">Order Now</button>
-    </form>
+    <?php
+        if(isset($_SESSION["auth"])){
+    ?>
+         <h1>Order Now </h1>
+        <form action="result.php"  method="post">
+            <label for="item">Food Item</label>
+            <select name="item" id="item">
+            <?php
+                $result = getMenu();
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "<option value='" .$row['name']. "'>".$row["name"]."</option>";
+                }
+            ?>
+            </select>
+            <br>
+            <label for="quantity"> Quantity</label>
+            <input type="number" name="quantity" id="quantity" value=1>
+            <br> <br>
+            <button class="orange-btn" type="submit">Order Now</button>
+        </form>
+    <?php
+        }else{
+    ?>
+    <h1>Login To Order</h1>
+    <a href="login.php"><button class= "white-btn">Login</button></a>
+    <?php 
+        }
+    ?>
 </body>
 </html>

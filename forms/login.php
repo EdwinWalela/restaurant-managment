@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "../config/dbconfig.php";
     $username = $_POST["fname"];
     $pass = $_POST["pass"];
@@ -7,6 +8,9 @@
     
     if(isset($row)){
         if($row["pass"] === $pass){
+            $_SESSION["auth"] = true;
+            $_SESSION["user"] = $row["fname"];
+            $_SESSION["type"] = $row["userId"];
             if($row["userId"]  == 1){
                 // Admin
                 header("Location: ../dashboard.php");
