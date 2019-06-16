@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="./static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <link rel="stylesheet" href="./static/style.css">
     <title>Ed's Eatery</title>
     <?php
         require "./config/dbconfig.php";
@@ -14,14 +14,24 @@
 </head>
 
 <body>
+<nav id="menu">
+    <h1>Ed's Eatery</h1>
+   
+    <!-- Display Logout button only when user is logged in -->
     <?php
         if(isset($_SESSION["auth"])){
     ?>
-    <a href="logout.php"><button id="admin">Logout</button></a>
+    <a href="logout.php"><p>Logout</p></a>
+    <?php
+        }else{
+    ?>
+     <a href="login.php"><p>Login</p></a>
     <?php
         }
     ?>
-    <h1>Ed's Eatery</h1>
+</nav>
+    <h1>The Menu</h1>
+    <!-- Display Menu -->
         <?php
             // output data of each row
             while($row = $result->fetch_assoc()) {
@@ -33,6 +43,7 @@
             }
         ?>
     <i class="fas fa-angle-double-down"></i>
+    <!-- Display Order Form only if the user is logged in -->
     <?php
         if(isset($_SESSION["auth"])){
     ?>
@@ -58,6 +69,7 @@
         }else{
     ?>
     <h1>Login To Order</h1>
+    <br>
     <a href="login.php"><button class= "white-btn">Login</button></a>
     <?php 
         }

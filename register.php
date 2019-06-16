@@ -13,10 +13,10 @@
 	<form action="./forms/registerUser.php" method="POST">
 		<p>Already Have an account?
 		<a href="login.php"><span id='new-acc-tip'> Login</a></span></p>
-		<label for="fname">First Name</label>
+		<label for="fname">Username</label>
 		<input type="text" name="fname" id="fname" required>
 		<br/>
-		<label for="lname">Last Name</label>
+		<label for="lname">Fullname</label>
 		<input type="text" name="lname" id="lname" required>
 		<br/>
 		<label for="pass">Password</label>

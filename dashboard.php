@@ -10,7 +10,8 @@
 </head>
 <body>
 <a href="index.php"><button id="admin">Menu</button></a>
-<a href="newItem.php"><button id="admin">New Food Item</button></a><br>
+<a href="newItem.php"><button id="admin">New Food Item</button></a>
+<a href="newItem.php"><button id="admin">Manage Users</button></a><br>
     <table>
         <tr>
             <th>Name</th>
@@ -25,7 +26,6 @@
                 echo "<td>" .$row['price']."</td>";
                 echo "<td> <img class='table-pic' src='" .$row['pic']."'/>";
                 echo "<td><a href='food.php?food=".$row['name']."'> Edit </a></td>";
-                echo "<td> Delete </td>";
                 echo "</tr>";
             }
         ?>
