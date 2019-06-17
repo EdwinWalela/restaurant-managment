@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +22,7 @@
 </head>
 
 <body>
-<a href="dashboard.php"><button id="admin">Dashboard</button></a>
+<?php include './include/nav.php';?>
 <h1>Edit Item</h1>
     <form action="./forms/updateItem.php"  method="post" enctype="multipart/form-data">
         <label for="item">Food Item</label>

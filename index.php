@@ -14,22 +14,7 @@
 </head>
 
 <body>
-<nav id="menu">
-    <h1>Ed's Eatery</h1>
-   
-    <!-- Display Logout button only when user is logged in -->
-    <?php
-        if(isset($_SESSION["auth"])){
-    ?>
-    <a href="logout.php"><p>Logout</p></a>
-    <?php
-        }else{
-    ?>
-     <a href="login.php"><p>Login</p></a>
-    <?php
-        }
-    ?>
-</nav>
+    <?php include './include/nav.php';?>
     <h1>The Menu</h1>
     <!-- Display Menu -->
         <?php

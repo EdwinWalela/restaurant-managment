@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +13,11 @@
 ?>
 
 <body>
+	<?php include './include/nav.php';?>
 	<form action="./forms/registerUser.php" method="POST">
-		<p>Already Have an account?
+		<p style="color:#fff">Already Have an account?
 		<a href="login.php"><span id='new-acc-tip'> Login</a></span></p>
+		<br>
 		<label for="fname">Username</label>
 		<input type="text" name="fname" id="fname" required>
 		<br/>

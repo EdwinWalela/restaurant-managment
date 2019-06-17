@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +8,7 @@
 	<title>Pizza Menu</title>
 </head>
 <body>
+	<?php include './include/nav.php';?>
 	<?php
 		require "./config/dbconfig.php";
 		

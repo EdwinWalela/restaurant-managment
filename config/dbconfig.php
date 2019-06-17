@@ -67,4 +67,10 @@
 		$row = $result->fetch_assoc();
 		return $row;
 	}
+
+	function getUsers(){
+		$conn = connect();
+		$sql = "SELECT * FROM users";
+        return $conn->query($sql);	
+	}
  ?>

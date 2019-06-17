@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +9,8 @@
 </head>
 
 <body>
-    <a href="index.php"><button id="admin">Menu</button></a>
-    <a href="dashboard.php"><button id="admin">Dashboard</button></a>
-
+    <?php include './include/nav.php';?>
+    
     <h1>Add New Food Item</h1>
 
     <form action="./forms/newFoodItem.php"  method="post" enctype="multipart/form-data">

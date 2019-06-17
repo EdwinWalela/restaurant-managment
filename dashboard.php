@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +12,7 @@
     ?>
 </head>
 <body>
-<a href="index.php"><button id="admin">Menu</button></a>
-<a href="newItem.php"><button id="admin">New Food Item</button></a>
-<a href="newItem.php"><button id="admin">Manage Users</button></a><br>
+<?php include './include/nav.php';?>
     <table>
         <tr>
             <th>Name</th>

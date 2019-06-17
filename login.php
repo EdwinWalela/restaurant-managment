@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +25,7 @@
 </head>
 
 <body>
+	<?php include './include/nav.php';?>
 	<?php
 		if(sizeof($queries) !=0 ){
 			if($queries["status"] === "mismatch"){
