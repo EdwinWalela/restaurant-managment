@@ -10,6 +10,7 @@
         if($row["pass"] === $pass){
             $_SESSION["auth"] = true;
             $_SESSION["user"] = $row["fname"];
+            $_SESSION["userId"] = $row["id"];
             $_SESSION["type"] = $row["userId"];
             if($row["userId"]  == 1){
                 // Admin

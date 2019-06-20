@@ -81,6 +81,12 @@ a{
         color: #fff;
         margin:10px 30px;
     }
+    
+    #order-totals{
+        font-weight: 700;
+        font-size: 1.4em;
+        color:tomato;
+    }
     .white-btn{
         width:200px;
         padding:15px;
@@ -211,6 +217,7 @@ a{
     #item{
         font-size: 0.9em;
     }
+
 
     @keyframes landing-bubble{
         0%{

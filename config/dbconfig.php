@@ -28,6 +28,24 @@
 		move_uploaded_file($tempName,$pic);
 	}
 
+	function newOrder($user,$item,$total){
+		$conn = connect();
+		$sql = "INSERT INTO orders (orderId,item,userId,total) VALUES(DEFAULT,'".$item."',".$user.",".$total.")";
+		$conn->query($sql);
+	}
+
+	function getOrders(){
+		$conn = connect();
+		$sql = "SELECT * FROM orders";
+		return $conn->query($sql);
+	}
+
+	function getOrdersTotal(){
+		$conn = connect();
+		$sql = 'SELECT SUM(total) AS sum FROM orders';
+		return $conn->query($sql);
+	}
+
 	function getFoodItem($item){
 		$conn = connect();
 		$sql = "SELECT * FROM menu WHERE name='".$item."'";

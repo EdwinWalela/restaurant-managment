@@ -27,10 +27,10 @@
 			$total = $prices[$_POST["item"]] * $quantity;
 
 
-		for($i = 0; $i < $quantity; $i++){
-			echo "<img class='res-pics' src='".$pics[$_POST["item"]]."'/>";
-		}
-			
+			for($i = 0; $i < $quantity; $i++){
+				echo "<img class='res-pics' src='".$pics[$_POST["item"]]."'/>";
+			}
+			newOrder($_SESSION["userId"],$_POST["item"],$total);
 			echo "<p id='total'>( ".$quantity." x Ksh.".$prices[$_POST["item"]]." )<br><br>Total Ksh. ".$total."</p>";
 		}
 	?>

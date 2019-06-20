@@ -6,6 +6,7 @@ if(isset($_SESSION["type"])){
         echo '<a href="newItem.php"><p>Add Item</p></a>';
         echo '<a href="dashboard.php"><p>Manage Items</p></a>';
         echo '<a href="users.php"><p>Manager Users</p></a>';
+        echo '<a href="report.php"><p>Financial Report</p></a>';
     }
 }
 if(isset($_SESSION["auth"])){
