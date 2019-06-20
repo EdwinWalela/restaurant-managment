@@ -26,7 +26,7 @@
                 echo "<td>" .$row['name']."</td>";
                 echo "<td>" .$row['price']."</td>";
                 echo "<td> <img class='table-pic' src='" .$row['pic']."'/>";
-                echo "<td><a href='food.php?food=".$row['name']."'> Edit </a></td>";
+                echo "<td><a href='edit.php?item=".$row['name']."'> Edit </a></td>";
                 echo "</tr>";
             }
         ?>
