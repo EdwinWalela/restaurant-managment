@@ -25,12 +25,13 @@
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$quantity = $_POST["quantity"];
 			$total = $prices[$_POST["item"]] * $quantity;
-
-
+			$desc = $_POST["order-desc"];
+			
 			for($i = 0; $i < $quantity; $i++){
 				echo "<img class='res-pics' src='".$pics[$_POST["item"]]."'/>";
 			}
-			newOrder($_SESSION["userId"],$_POST["item"],$total);
+
+			newOrder($_SESSION["userId"],$_POST["item"],$total,$prices[$_POST["item"]],$desc,$quantity);
 			echo "<p id='total'>( ".$quantity." x Ksh.".$prices[$_POST["item"]]." )<br><br>Total Ksh. ".$total."</p>";
 		}
 	?>

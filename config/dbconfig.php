@@ -28,10 +28,16 @@
 		move_uploaded_file($tempName,$pic);
 	}
 
-	function newOrder($user,$item,$total){
+	function newOrder($user,$item,$amount,$unitAmount,$description,$quantity){
 		$conn = connect();
-		$sql = "INSERT INTO orders (orderId,item,userId,total) VALUES(DEFAULT,'".$item."',".$user.",".$total.")";
+		$sql = "INSERT INTO orders (orderId,userId,amount,status,date_created) VALUES(DEFAULT,".$user.",".$amount.",0,DEFAULT)";
 		$conn->query($sql);
+
+		$orderId = $conn->insert_id;
+		$sql = "INSERT INTO order_details (id,order_id,unit_amount,description,quantity,date_created,status) VALUES(DEFAULT,".$orderId.",".$unitAmount.",'".$description."',".$quantity.",DEFAULT,0)";
+
+		$conn->query($sql);
+
 	}
 
 	function getOrders(){

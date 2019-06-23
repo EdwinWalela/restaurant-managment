@@ -47,7 +47,14 @@
             <br>
             <label for="quantity"> Quantity</label>
             <input type="number" name="quantity" id="quantity" value=1>
-            <br> <br>
+            <br><br>
+            <p style="text-decoration:underline">Size</p>
+            <select name="order-desc" id="order-desc">
+                <option value="0" selected>Select Size</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+            <br><br>
             <button class="orange-btn" type="submit">Order Now</button>
         </form>
     <?php
