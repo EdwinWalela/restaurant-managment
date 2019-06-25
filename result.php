@@ -12,28 +12,26 @@
 	<?php
 		require "./config/dbconfig.php";
 		
-		$result = getMenu();
-
-		$prices = array();
-		$pics = array();
-
+		$result = displayCart($_SESSION["userId"]);
+		$total = 0;
+		
 		while($row = $result->fetch_assoc()) {
-			$prices[$row["name"]] = $row["price"];
-			$pics[$row["name"]] = $row["pic"];
+			$total+=$row["price"] * $row["quantity"];
 		}
-
-		if($_SERVER["REQUEST_METHOD"] == "POST"){
-			$quantity = $_POST["quantity"];
-			$total = $prices[$_POST["item"]] * $quantity;
-			$desc = $_POST["order-desc"];
-			
-			for($i = 0; $i < $quantity; $i++){
-				echo "<img class='res-pics' src='".$pics[$_POST["item"]]."'/>";
-			}
-
-			newOrder($_SESSION["userId"],$_POST["item"],$total,$prices[$_POST["item"]],$desc,$quantity);
-			echo "<p id='total'>( ".$quantity." x Ksh.".$prices[$_POST["item"]]." )<br><br>Total Ksh. ".$total."</p>";
+		
+		$orderId = newOrder($_SESSION["userId"],$total);
+		$result = displayCart($_SESSION["userId"]);
+		
+		while($row = $result->fetch_assoc()) {
+			newOrderDetail($orderId,$row["price"],"desc",$row["quantity"]);
+			echo "<br>";
+			echo "<div class='mycart'>";
+			echo "<p>".$row["name"]."(x".$row["quantity"].")</p>";
+			echo "<h3>Ksh. ".$row["price"]*$row["quantity"]."</h3>";
+			echo "</div>";
+			echo "<br>";
 		}
+		emptyCart($_SESSION["userId"]);
 	?>
 		<br>  
 		<a href="./index.php"><button class='white-btn-static'>New Order</button></a> 

@@ -34,6 +34,7 @@
 				print_r($row);
 				echo "<option value='" .$row['userId']. "'>".$row["userType"]."</option>";
 			}
+			
 		?>
 		</select><br/>
 		<button class="orange-btn" type="submit">Register</button>
