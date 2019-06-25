@@ -7,7 +7,7 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="./static/style.css">
     <?php
-      require "./config/dbconfig.php";
+      require "./models/menu.php";
       $result = getMenu();
     ?>
 </head>

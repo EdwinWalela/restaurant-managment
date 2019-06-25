@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="./static/style.css">
 	<title>Ed's Eatery</title>
 	<?php
-		require "./config/dbconfig.php";
+		require "./models/menu.php";
 		$result = getMenu();
 	?>
 </head>

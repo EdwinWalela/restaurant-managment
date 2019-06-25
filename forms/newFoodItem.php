@@ -1,5 +1,5 @@
 <?php
-        require "../config/dbconfig.php";
+        require "../models/menu.php";
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Extract form values
             $filename = $_POST["item"];

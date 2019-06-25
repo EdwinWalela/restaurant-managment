@@ -1,5 +1,5 @@
 <?php
-    require "../config/dbconfig.php";
+    require "../models/auth.php";
 
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];

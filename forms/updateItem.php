@@ -1,5 +1,5 @@
 <?php
-        require "../config/dbconfig.php";
+        require "../models/menu.php";
         $queries = array();
         parse_str($_SERVER["QUERY_STRING"],$queries);
         if($_SERVER["REQUEST_METHOD"] == "POST"){

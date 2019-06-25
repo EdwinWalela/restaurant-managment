@@ -1,9 +1,10 @@
 <?php
     session_start();
-    require "../config/dbconfig.php";
+    require "../models/auth.php";
     $username = $_POST["fname"];
     $pass = $_POST["pass"];
     $pass = sha1($pass);
+    
     $row = login($username,$pass); 
     
     if(isset($row)){

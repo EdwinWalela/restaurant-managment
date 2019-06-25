@@ -9,7 +9,7 @@
     <title>Update Item</title>
     <link rel="stylesheet" href="./static/style.css">
 <?php
-        require "./config/dbconfig.php";
+        require "./models/menu.php";
 
         $queries = array();
         parse_str($_SERVER["QUERY_STRING"],$queries);
