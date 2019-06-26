@@ -1,11 +1,15 @@
 <?php
-    require "./config/dbconfig.php";
- 
+	if(file_exists("./config/dbconfig.php")){
+		require "./config/dbconfig.php";
+	}else{
+		require "../config/dbconfig.php";
+	}
     function newFoodItem($filename,$item,$price,$tempName){
         $conn = connect();
         $target = "../images/";
 		$pic = $target.$filename.".png";
-		$sql = "INSERT INTO menu (name,price,pic) values('".$item."',".$price.",'".$pic."')";
+		$file = $filename.".png";
+		$sql = "INSERT INTO menu (name,price,pic) values('".$item."',".$price.",'".$file."')";
 		$result = $conn->query($sql);
 		move_uploaded_file($tempName,$pic);
     }
@@ -22,16 +26,18 @@
         return $conn->query($sql);
     } 
     
-	function updateFoodItem($filename,$item,$price,$tempName){
+	function updateFoodItem($id,$filename,$item,$price,$tempName){
 		$conn = connect();
-		$target = "./images/";
+		$target = "../images/";
 		if(isset($filename)){
+			$file = $filename.".png";
 			$pic = $target.$filename.".png";
 			move_uploaded_file($tempName,$pic);
-			$sql = "UPDATE menu SET name='".$item."',price=".$price.",pic='".$pic."' WHERE name='".$item."'";
+			$sql = "UPDATE menu SET name='".$item."',price=".$price.",pic='".$file."' WHERE id='".$id."'";
 		}else{
-			$sql = "UPDATE menu SET name='".$item."',price=".$price." WHERE name='".$item."'";
+			$sql = "UPDATE menu SET name='".$item."',price=".$price." WHERE id='".$id."'";
 		}
-		$result = $conn->query($sql);
+		$conn->query($sql);
+		echo $sql;
 	}
 ?>

@@ -33,7 +33,7 @@
         <br>
         <label for="price"> Price</label>
         <input type="number" name="price" value=<?php echo $row["price"] ?> id="price">
-        <br> <br>
+        <input type="number" name="id" value=<?php echo $row["id"]?> style="display:none;">
         <button class="orange-btn" type="submit">Update</button>
     </form>
 </body>

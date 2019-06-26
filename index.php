@@ -21,7 +21,7 @@
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				echo "<div class='menu-card'>";
-				echo "<img src='./".$row["pic"]."'/>";
+				echo "<img src='./images/".$row["pic"]."'/>";
 				echo "<p>".$row["name"]."</p>";
 				echo "<h3>Ksh. ".$row["price"]."</h3>";
 				echo "</div>";
