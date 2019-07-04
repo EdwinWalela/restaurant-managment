@@ -15,7 +15,7 @@
             $_SESSION["type"] = $row["userId"];
             if($row["userId"]  == 1){
                 // Admin
-                header("Location: ../dashboard.php");
+                header("Location: ../admin/orders.php");
             }else if($row["userId"]  == 2){
                 // Normal user
                 header("Location: ../index.php");

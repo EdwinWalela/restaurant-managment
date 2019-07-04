@@ -23,7 +23,7 @@
 		$result = displayCart($_SESSION["userId"]);
 		
 		while($row = $result->fetch_assoc()) {
-			newOrderDetail($orderId,$row["price"],"desc",$row["quantity"]);
+			newOrderDetail($orderId,$row["item_id"],$row["price"],"desc",$row["quantity"]);
 			echo "<br>";
 			echo "<div class='mycart'>";
 			echo "<p>".$row["name"]."(x".$row["quantity"].")</p>";

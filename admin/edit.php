@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<?php include './include/nav.php';?>
+<?php include '../include/nav.php';?>
 <h1>Edit Item</h1>
     <form action="./forms/updateItem.php"  method="post" enctype="multipart/form-data">
         <label for="item">Food Item</label>

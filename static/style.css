@@ -137,6 +137,7 @@ a{
         display:inline-block;
         transition:all linear .3s;
     }
+    
     .mycart{
         border-radius:10px;
         background:#4464AD;
@@ -175,6 +176,48 @@ a{
         margin-top:50px;
         width:200px;
         height:200px;
+    }
+
+    .order-detail{
+        background: #fff;
+        border-radius: 10px;
+        border:solid 2px #4464AD;
+        color:#4464AD;
+        width:40%;
+        margin:10px auto;
+        padding:30px;
+        transition: all linear .4s .3s;
+    }
+
+    .order-detail:hover{
+        color:#fff;
+        background: #4464AD;
+        transition: all linear .4s ;
+    }
+    .order-detail h2{
+        text-align: left;
+    }
+    .order-status{
+        float: right;
+    }
+    .order-time{
+        float: right;
+    }
+    .order-detail p{
+        display:inline-block;
+    }
+    .fa-hourglass-half{
+        font-size:0.8em;
+      
+    }
+
+    .fa-spinner{
+          animation: pending-order 2s linear infinite;
+    }
+
+    .order-description{
+        border:solid 1px #4464AD;
+        width:4%;
     }
 
     table {
@@ -237,5 +280,14 @@ a{
         }
         100%{
             top:0;
+        }
+    }
+
+    @keyframes pending-order{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
         }
     }

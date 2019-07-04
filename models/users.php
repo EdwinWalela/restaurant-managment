@@ -1,5 +1,9 @@
 <?php
-    require "./config/dbconfig.php";
+    if(file_exists("./config/dbconfig.php")){
+		require "./config/dbconfig.php";
+	}else{
+		require "../config/dbconfig.php";
+	}
 
     // Retrieve user using userId
     function getUser($id){
