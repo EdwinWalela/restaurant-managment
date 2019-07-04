@@ -13,11 +13,11 @@
 		parse_str($_SERVER["QUERY_STRING"],$queries);
 
 		if(sizeof($queries) !=0 ){
-			if($queries["status"] === "pending"){
+			if($queries["status"] == "pending"){
 				$result = getOrders(0);
-			}else if($queries["status"] === "in-progress"){
+			}else if($queries["status"] == "in-progress"){
 				$result = getOrders(1);
-			}else if($queries["status"] === "completed"){
+			}else if($queries["status"] == "completed"){
 				$result = getOrders(2);
 			}else{
 				$result = getOrders(3);
@@ -29,13 +29,21 @@
 </head>
 <body>
 <?php include '../include/nav.php';?>
-	<select name="" id="">
-		<option value="3">All Orders</option>
-		<option value="0">Pending</option>
-		<option value="1">In Progress</option>
-		<option value="2">Completed</option>
-	</select>
+	<select name="" id="order-filter">
+		<option value="">Filter Orders</option>
+		<option value="all">All Orders</option>
+		<option value="pending">Pending</option>
+		<option value="in-progress">In Progress</option>
+		<option value="completed">Completed</option>
+	</select> <br>
 	<?php
+		if($result->num_rows == 0){
+			?>
+			
+			<i class="fas fa-heart-broken"></i>
+			<p>No Orders Available</p>
+			<?php
+		}
 		while($row = $result->fetch_assoc()){
 			?>
 			<a href="orderdetail.php?id=<?php echo $row["orderId"] ?>">
@@ -61,5 +69,6 @@
 			<?php
 		}
 	?>
+	<script src='../static/app.js'></script>
 </body>
 </html>

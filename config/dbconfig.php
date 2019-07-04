@@ -22,7 +22,7 @@
 
 	function displayOrder($orderId){
 		$conn = connect();
-		$sql = "SELECT menu.name,menu.price,order_details.description,order_details.quantity FROM order_details INNER JOIN menu ON item_id = menu.id ";
+		$sql = "SELECT menu.name,menu.price,order_details.description,order_details.quantity,order_details.order_id,order_details.status FROM order_details INNER JOIN menu ON item_id = menu.id ";
 		return $conn->query($sql);
 	}
 
@@ -51,18 +51,17 @@
 
 	function getOrders($id){
 		$conn = connect();
-		if($id == 3){
-			//all
-			$sql = "SELECT * FROM orders";
-		}else if($id == 0){
+		if($id == 0){
 			//pending
 			$sql = "SELECT * FROM orders WHERE status = 0";
 		}else if($id == 1){
 			//in progress
 			$sql = "SELECT * FROM orders WHERE status = 1";
-		}else{
+		}else if($id == 2){
 			//completed
 			$sql = "SELECT * FROM orders WHERE status = 2";
+		}else{
+			$sql = "SELECT * FROM orders";
 		}
 		return $conn->query($sql);
 	}
@@ -73,10 +72,20 @@
 		return $conn->query($sql);
 	}
 
-	function updateOrderStatus($id,$to){
+	function updateOrderStatus($to,$id){
 		$conn = connect();
-		$sql = "";
-		return $conn->query($sql);
+		if($to == 10){
+			// delete
+			$sql = "DELETE FROM order_details WHERE order_id=".$id;
+			$conn->query($sql);
+			$sql = "DELETE FROM orders WHERE orderId=".$id;
+			$conn->query($sql);
+		}else{
+			$sql = "UPDATE orders SET status = ".$to." WHERE orderId=".$id;
+			$conn->query($sql);
+			$sql = "UPDATE order_details SET status = ".$to." WHERE order_id=".$id;
+			$conn->query($sql);
+		}
 	}
 
 	function getOrdersTotal(){

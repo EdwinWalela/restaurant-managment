@@ -21,24 +21,36 @@
 <body>
 <?php include '../include/nav.php';?>
     <div class="order-description">
-        <h3>Items</h3>
+        <h3>Order</h3>
+		<ul>
             <?php
                 while($row = $result->fetch_assoc()){
+					$orderId = $row["order_id"];
+					$status = $row["status"];
+					$total = getOrder($row["order_id"]);
+					$total = $total->fetch_assoc();
+					$total = $total["amount"];
             ?>
-                <p><?php echo $row["name"]?> : <?php echo $row["quantity"]?> X <?php echo $row["price"]?></p>
+                <li><?php echo $row["name"]?> : <?php echo $row["quantity"]?> X <?php echo $row["price"]?></li>
             <?php
 			}
-				if($row["status"] == 0){
 			?>
-				<a href="updateorder.php?to=1"><button>Prepare</button></a>
-				<a href="updateorder.php?to=10"><button>Cancel</button></a>			
-			<?php
-			}else{
-			?>
-				<a href="updateorder.php?to=3"><button>Complete</button></a>
-			<?php
-			}
-			?>
+		</ul>
+		<br><br>
+		<p>Total: Ksh.<?php echo $total?></p>
+		<?php
+			if($status == 0){
+		?>
+			<a href="updateorder.php?to=1&orderid=<?php echo $orderId;?>"><button class='prepare'>Prepare</button></a>
+			<a href="updateorder.php?to=10&orderid=<?php echo $orderId;?>"><button class='cancel'>Cancel</button></a>			
+		<?php
+		}else if($status == 1){
+		?>
+			<a href="updateorder.php?to=2&orderid=<?php echo $orderId;?>"><button class='complete'>Complete</button></a>
+			<a href="updateorder.php?to=10&orderid=<?php echo $orderId;?>"><button class='cancel'>Cancel</button></a>
+		<?php
+		}
+		?>
     </div>
 </body>
 </html>
