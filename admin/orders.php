@@ -54,16 +54,15 @@
 						$date = new DateTime($row["date_created"]);
 						$now = new DateTime();
 						$duration = $date->diff($now)->format(" %i");
-					?>
-					<p class='order-time'><?php echo $duration?> minutes ago</p>
-					<h2>#<?php echo $row["orderId"] ?></h2> 
-					<?php if($row["status"] == 0){?>
+					if($row["status"] == 0){?>
+						<p class='order-time'><?php echo $duration?> minutes ago</p><br>
 						<p class='order-status pending'>Pending <i class="fas fa-hourglass-half"></i></p>
 					<?php }else if($row["status"] == 1){ ?>
 						<p class='order-status pending'>Preparing <i class="fas fa-spinner"></i></p>
 					<?php }else{?>
-						<p class='order-status pending'>Ready <i class="fas fa-check"></i></p>
+						<p class='order-status pending'>Ready <i class="fas fa-check"></i></p><br>
 					<?php } ?>	
+					<h2>#<?php echo $row["orderId"] ?></h2> 
 				</div>
 			</a>
 			<?php

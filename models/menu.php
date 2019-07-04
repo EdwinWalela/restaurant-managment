@@ -29,7 +29,7 @@
 	function updateFoodItem($id,$filename,$item,$price,$tempName){
 		$conn = connect();
 		$target = "../images/";
-		if(isset($filename)){
+		if(isset($tempName)){
 			$file = $filename.".png";
 			$pic = $target.$filename.".png";
 			move_uploaded_file($tempName,$pic);
@@ -38,6 +38,6 @@
 			$sql = "UPDATE menu SET name='".$item."',price=".$price." WHERE id='".$id."'";
 		}
 		$conn->query($sql);
-		echo $sql;
+		// echo $sql;
 	}
 ?>

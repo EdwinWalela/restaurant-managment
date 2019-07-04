@@ -24,7 +24,7 @@
 <body>
 <?php include '../include/nav.php';?>
 <h1>Edit Item</h1>
-    <form action="./forms/updateItem.php"  method="post" enctype="multipart/form-data">
+    <form action="../forms/updateItem.php"  method="post" enctype="multipart/form-data">
         <label for="item">Food Item</label>
         <input type="text" name="item" id="item" value=<?php echo $row["name"] ?> placeholder="Enter food item">
         <br>
@@ -33,6 +33,7 @@
         <br>
         <label for="price"> Price</label>
         <input type="number" name="price" value=<?php echo $row["price"] ?> id="price">
+        <input style="display:none" name="itemId" type="number" value=<?php echo $row["id"]?>>
         <br> <br>
         <button class="orange-btn" type="submit">Update</button>
     </form>

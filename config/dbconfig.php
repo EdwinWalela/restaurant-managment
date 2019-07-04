@@ -22,7 +22,7 @@
 
 	function displayOrder($orderId){
 		$conn = connect();
-		$sql = "SELECT menu.name,menu.price,order_details.description,order_details.quantity,order_details.order_id,order_details.status FROM order_details INNER JOIN menu ON item_id = menu.id ";
+		$sql = "SELECT menu.name,menu.price,order_details.description,order_details.quantity,order_details.order_id,order_details.status FROM order_details INNER JOIN menu ON item_id = menu.id AND order_id=".$orderId;
 		return $conn->query($sql);
 	}
 

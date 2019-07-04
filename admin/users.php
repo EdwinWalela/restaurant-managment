@@ -37,6 +37,10 @@
     </table>
     <h3>User Types</h3><br>
     <span>Admin: <i class='fas user-icon admin-icon fa-user-shield'></i>
-      Client: <i class='fas user-icon fa-user'></i> </span>
+    <br><br>
+    Client: <i class='fas user-icon fa-user'></i> </span>
+    <?php
+
+    ?>
 </body>
 </html>

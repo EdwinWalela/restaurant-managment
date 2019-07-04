@@ -1,6 +1,7 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path = str_replace($_SERVER['DOCUMENT_ROOT'],'',$path);
+echo $path;
 echo '<nav id="menu">';
 echo ' <a href="'.$path.'"> <h1>Ed\'s Eatery</h1> </a>';
 if(isset($_SESSION["type"])){

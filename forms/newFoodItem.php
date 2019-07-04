@@ -8,6 +8,6 @@
             $tempName = $_FILES["item"]["tmp_name"];
             // Save to DB
             newFoodItem($filename,$item,$price,$tempName);
-            header('Location: ../dashboard.php');
+            header('Location: ../admin/dashboard.php');
         }
     ?>
